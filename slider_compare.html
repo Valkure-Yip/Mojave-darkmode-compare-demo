@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>slider compare</title>
+	<style>
+	.compare_block {
+		/*postion: relative and absolute*/
+		position: relative;
+		/*what is inline-block?*/
+		display: inline-block;
+		
+	}
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		overflow: hidden;
+	}
+	#slider {
+		position: absolute;
+		top: 50%;
+		width:100%;
+	}
+	</style>
+	<script>
+		// when is the script loaded: before DOM render! 		
+		function handleChange() {
+			// body...
+			overlay = document.getElementsByClassName("overlay");
+			range = document.getElementsByTagName("input");
+			// console.log(overlay.style.width)
+			overlay[0].style.width = range[0].value+'%';
+		}
+		
+	</script>
+</head>
+<body>
+	<div class="compare_block">
+		<img src="image_light_large.png" class="bottom">
+		<div class="overlay">
+			<img src="image_darkmode_large.png">
+		</div>
+		<input type="range" id="slider" min="0" max="100" value="50" oninput="handleChange()">
+	</div>
+
+</body>
+</html>
